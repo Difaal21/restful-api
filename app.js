@@ -1,23 +1,42 @@
-const express = require("express");
-const app = express();
+const express = require("express"),
+  app = express(),
+  bodyParser = require("body-parser"),
+  mongoose = require("mongoose"),
+  cors = require("cors");
 
-app.get("/", (req, res) => {
-  res.send("Berhasil");
+app.use(cors());
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+app.use(bodyParser.json());
+
+mongoose.connect("mongodb://localhost/ecommerce", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
 });
 
-app.get("api/courses", (req, res) => {});
+const db = mongoose.connection;
+db.on("error", (error) => console.log(error));
+db.once("open", () => console.log("Connected to Mongoose"));
 
-app.get("api/courses/:id", (req, res) => {
-  const course = course.find((data) => data.id === parseInt(req.params.id));
-  if (!course) res.status(404).send("The coure with given ID was not dound");
-  res.send(course);
+app.use("/products", require("./api/routes/products"));
+
+app.use((req, res, next) => {
+  const error = new Error(" PageNot Found");
+  res.status(404);
+  next(error);
 });
 
-app.post("/api/courses", (req, res) => {
-  const course = {};
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.json({
+    messsage: error.message,
+  });
 });
 
 // PORT
 const port = process.env.PORT || 3000;
 
-app.listen(port);
+app.listen(port, () => console.log(`Server start on port ${port}`));

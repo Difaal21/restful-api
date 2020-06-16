@@ -1,0 +1,25 @@
+GET http://localhost:3000/products
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name" : "Ayam Geprek",
+    "price" : 9
+}
+
+###
+GET http://localhost:3000/products/5ee88fdb5d4a2e6368308b8b
+
+###
+DELETE http://localhost:3000/products/5ee88f7c26a3df630c3fbd4d
+
+###
+PATCH http://localhost:3000/products/5ee88a3584c36d51f438bc5b
+Content-Type: application/json
+
+{
+    "price" : 300, "name" : "Oreo Supreme"
+}
+
