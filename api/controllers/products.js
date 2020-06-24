@@ -21,7 +21,7 @@ exports.getAllProducts = async (req, res) => {
 exports.getProductsById = async (req, res) => {
   try {
     let product = await Products.findById(req.params.productId)
-      .select("name price")
+      .select("name type price")
       .exec();
 
     if (product === null) {
@@ -42,13 +42,14 @@ exports.createOneProduct = async (req, res, next) => {
   const product = new Products({
     name: req.body.name,
     price: req.body.price,
+    type: req.body.type,
   });
 
   try {
     const saveProduct = await product.save();
 
     const newProduct = await Products.findById(saveProduct._id)
-      .select("name price")
+      .select("name type price")
       .exec();
 
     res.status(201).json(newProduct);
@@ -60,7 +61,7 @@ exports.createOneProduct = async (req, res, next) => {
 exports.deleteOneProduct = async (req, res) => {
   try {
     const product = await Products.findById(req.params.productId)
-      .select("name price")
+      .select("name type price")
       .exec();
 
     if (product === null) {
@@ -85,7 +86,7 @@ exports.updateProduct = async (req, res) => {
     ).exec();
 
     const product = await Products.findById(req.params.productId)
-      .select("name price")
+      .select("name type price")
       .exec();
 
     if (product === null) {

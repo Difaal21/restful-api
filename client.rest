@@ -5,21 +5,21 @@ POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-    "name" : "Ayam Geprek",
-    "price" : 9
+    "name" : "Jus Buah Naga",
+    "type" : "Minuman"
 }
 
 ###
 GET http://localhost:3000/products/5ee88fdb5d4a2e6368308b8b
 
 ###
-DELETE http://localhost:3000/products/5ee88f7c26a3df630c3fbd4d
+DELETE http://localhost:3000/products/5ef3487d7dd0fa65f457b4ac
 
 ###
-PATCH http://localhost:3000/products/5ee88a3584c36d51f438bc5b
+PATCH http://localhost:3000/products/5ef349f01916e3622c77cb00
 Content-Type: application/json
 
 {
-    "price" : 300, "name" : "Oreo Supreme"
+    "type" : "Minuman"
 }
 
