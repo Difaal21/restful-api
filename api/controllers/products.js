@@ -52,7 +52,9 @@ exports.createOneProduct = async (req, res, next) => {
       .select("name type price")
       .exec();
 
-    res.status(201).json(newProduct);
+    res
+      .status(201)
+      .json({ produk: newProduct, status: "Success to add produk" });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -70,7 +72,9 @@ exports.deleteOneProduct = async (req, res) => {
 
     product.remove();
 
-    res.status(200).json(product);
+    res.status(200).json({
+      message: `${product.name} has been deleted`,
+    });
   } catch (error) {
     res.status(500).json({
       message: `Invalid ID`,
@@ -80,7 +84,7 @@ exports.deleteOneProduct = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
   try {
-    await Products.updateOne(
+    const newProduct = await Products.updateOne(
       { _id: req.params.productId },
       { $set: req.body }
     ).exec();
@@ -95,7 +99,7 @@ exports.updateProduct = async (req, res) => {
       });
     }
 
-    res.status(201).json(product);
+    res.status(201).json({ produk: product, status: "Success to update" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -21,10 +21,11 @@ const db = mongoose.connection;
 db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("Connected to Mongoose"));
 
+app.use("/user", require("./api/routes/users"));
 app.use("/products", require("./api/routes/products"));
 
 app.use((req, res, next) => {
-  const error = new Error(" PageNot Found");
+  const error = new Error(" Page Not Found");
   res.status(404);
   next(error);
 });

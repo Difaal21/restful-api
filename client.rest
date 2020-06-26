@@ -1,11 +1,34 @@
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+    "username":"Difaal",
+    "password":"1"
+}
+
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "username":"Difaal", "password":"1"
+}
+
+#--------------------------------------------#
+###
+DELETE http://localhost:3000/user/5ef549a7c6f9557200e47c22
+
+###
 GET http://localhost:3000/products
 
 ###
 POST http://localhost:3000/products
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjU0OWIyYzZmOTU1NzIwMGU0N2MyMyIsInVzZXJuYW1lIjoiRGlmYWFsIiwiaWF0IjoxNTkzMTUxNTAxLCJleHAiOjE1OTMxNTUxMDF9.3y0iCtndHte4xJll3ljRqDDTl8iV6U1YLZs0qPREqG0
 
 {
-    "name" : "Jus Buah Naga",
+    "name" : "Jus Alpukat",
+    "price": 10000,
     "type" : "Minuman"
 }
 
@@ -13,13 +36,15 @@ Content-Type: application/json
 GET http://localhost:3000/products/5ee88fdb5d4a2e6368308b8b
 
 ###
-DELETE http://localhost:3000/products/5ef3487d7dd0fa65f457b4ac
+DELETE http://localhost:3000/products/5ef5903d51e2d887245a41e7
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjU0OWIyYzZmOTU1NzIwMGU0N2MyMyIsInVzZXJuYW1lIjoiRGlmYWFsIiwiaWF0IjoxNTkzMTUxNTAxLCJleHAiOjE1OTMxNTUxMDF9.3y0iCtndHte4xJll3ljRqDDTl8iV6U1YLZs0qPREqG0
+
 
 ###
-PATCH http://localhost:3000/products/5ef349f01916e3622c77cb00
+PATCH http://localhost:3000/products/5ef5903d51e2d887245a41e7
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjU0OWIyYzZmOTU1NzIwMGU0N2MyMyIsInVzZXJuYW1lIjoiRGlmYWFsIiwiaWF0IjoxNTkzMTUxNTAxLCJleHAiOjE1OTMxNTUxMDF9.3y0iCtndHte4xJll3ljRqDDTl8iV6U1YLZs0qPREqG0
 
 {
     "type" : "Minuman"
 }
-
