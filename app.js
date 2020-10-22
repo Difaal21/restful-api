@@ -12,7 +12,7 @@ app.use(
 );
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost/ecommerce", {
+mongoose.connect("mongodb://localhost:27017/ecommerce", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });

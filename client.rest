@@ -2,8 +2,12 @@ POST http://localhost:3000/user/signup
 Content-Type: application/json
 
 {
-    "username":"Difaal",
-    "password":"1"
+    "name" : "Difa Al Fansha",
+    "username":"Difaal21",
+    "password":"1",
+    "company" : "Telkomdev",
+    "gmail": "Difaal21@gmail.com",
+    "gender" : "Laki-laki"
 }
 
 ###
@@ -24,12 +28,12 @@ GET http://localhost:3000/products
 ###
 POST http://localhost:3000/products
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjU0OWIyYzZmOTU1NzIwMGU0N2MyMyIsInVzZXJuYW1lIjoiRGlmYWFsIiwiaWF0IjoxNTkzMTUxNTAxLCJleHAiOjE1OTMxNTUxMDF9.3y0iCtndHte4xJll3ljRqDDTl8iV6U1YLZs0qPREqG0
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjU0OWIyYzZmOTU1NzIwMGU0N2MyMyIsInVzZXJuYW1lIjoiRGlmYWFsIiwiaWF0IjoxNjAzMzY5MjYyLCJleHAiOjE2MDMzNzI4NjJ9.a0OtPYUBsfTLQOxlUaxno0pIhvJ2EQfrxTkenkU41Zc
 
 {
-    "name" : "Jus Alpukat",
-    "price": 10000,
-    "type" : "Minuman"
+    "name" : "Kentang Ricing",
+    "price": 5000,
+    "type" : "Cemilan"
 }
 
 ###
