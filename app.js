@@ -1,7 +1,6 @@
 const express = require("express"),
   app = express(),
   bodyParser = require("body-parser"),
-  mongoose = require("mongoose"),
   cors = require("cors");
 
 app.use(cors());
@@ -12,14 +11,9 @@ app.use(
 );
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/ecommerce", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
-
-const db = mongoose.connection;
-db.on("error", (error) => console.log(error));
-db.once("open", () => console.log("Connected to Mongoose"));
+// Conmect MongoDB
+const connectDB = require("./api/config/connect");
+connectDB();
 
 app.use("/user", require("./api/routes/users"));
 app.use("/products", require("./api/routes/products"));
@@ -38,6 +32,6 @@ app.use((error, req, res, next) => {
 });
 
 // PORT
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server start on port ${port}`));

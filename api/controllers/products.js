@@ -2,7 +2,7 @@ const Products = require("../models/products");
 
 exports.getAllProducts = async (req, res) => {
   try {
-    const products = await Products.find().select("name price").exec();
+    const products = await Products.find().select("name price type").exec();
 
     if (products === null) {
       return res.status(404).json({

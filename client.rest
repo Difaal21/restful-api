@@ -1,17 +1,17 @@
-POST http://localhost:3000/user/signup
+POST http://localhost:5000/user/signup
 Content-Type: application/json
 
 {
-    "name" : "Difa Al Fansha",
-    "username":"Difaal21",
-    "password":"1",
+    "name" : "Al Fansha",
+    "username":"Alfansha09",
+    "password":"12345678",
     "company" : "Telkomdev",
-    "gmail": "Difaal21@gmail.com",
+    "gmail": "Alfansha@gmail.comi",
     "gender" : "Laki-laki"
 }
 
-###
-POST http://localhost:3000/user/login
+####
+POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {

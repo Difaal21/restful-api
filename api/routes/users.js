@@ -18,9 +18,9 @@ router.post("/signup", async (req, res) => {
   });
 
   try {
-    const passwordLength = user.password.length
+    const passwordLength = user.password.length;
 
-    if(passwordLength < 8){
+    if (passwordLength < 8) {
       return res.status(400).json({
         message: "Password should be at least 8 character",
       });
